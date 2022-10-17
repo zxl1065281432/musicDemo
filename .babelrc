@@ -1,0 +1,17 @@
+{
+    "plugins": [
+      ["import", {
+        "libraryName": "vant",
+        "libraryDirectory": "es",
+        "style": true
+      }]
+    ],
+    "env": {
+      "development": {
+      "plugins": [
+      "dynamic-import-node"
+      ]
+      }
+      }
+  }
+  
