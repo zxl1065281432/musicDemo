@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 // createWebHistory
-
+import { getItem } from '@/utils/storage'
 const routes = [
   {
     path: '/',
@@ -19,7 +19,14 @@ const routes = [
     path: '/myinfo',
     name: 'myinfo',
     component: () => import('@/views/MyInfo.vue'),
-    meta: { isShowBottom: false }
+    meta: { isShowBottom: false },
+    beforeEnter (to, from, next) {
+      if (getItem('USER_PROFILE') && getItem('_USER_TOKEN')) {
+        next()
+      } else {
+        next('/login')
+      }
+    }
   },
   {
     path: '/myLoveSong',
@@ -38,6 +45,11 @@ const routes = [
     name: 'playListDetail',
     component: () => import('@/views/PlayListDetail.vue'),
     meta: { isShowBottom: true }
+  },
+  {
+    path: '/comments',
+    name: 'comments',
+    component: () => import('@/views/Comments.vue')
   }
 ]
 

@@ -92,6 +92,16 @@ export default {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            .listenList_right{
+                .favorites{
+                    height: .8rem;
+                    padding: .2rem;
+                    border: none;
+                    color: #fff;
+                    border-radius: .3rem;
+                    background-color: #f00;
+                }
+            }
             .listenList_left{
                 display: flex;
                 align-items: center;

@@ -88,6 +88,7 @@ export default {
 <style lang="less" scoped>
 .backLeft{
   position: absolute;
+  top:0;
   padding: .2rem;
 }
 .mLogin{

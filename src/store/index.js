@@ -110,6 +110,7 @@ export default createStore({
     async login ({ commit }, value) {
       const res = await login(value)
       commit('getUserInfo', res.data)
+      return res.data
     },
     // 获取歌词列表
     async getLyricsList ({ commit }, id) {

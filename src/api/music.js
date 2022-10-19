@@ -28,3 +28,11 @@ export const getLikeList = function (userId) {
     method: 'GET'
   })
 }
+
+// 获取歌词评论
+export const getComment = function (id, num = 1) {
+  return axios({
+    url: `/comment/music?id=${id}&limit=20&offset=${num}`,
+    method: 'GET'
+  })
+}

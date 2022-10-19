@@ -13,7 +13,8 @@
       <svg class="icon" aria-hidden="true">
         <use xlink:href="#icon-music"></use>
       </svg>
-      <svg class="icon" aria-hidden="true">
+      <!-- 评论 -->
+      <svg class="icon" aria-hidden="true" @click="$router.push('/comments')">
         <use xlink:href="#icon-pinglun"></use>
       </svg>
       <svg class="icon" aria-hidden="true">

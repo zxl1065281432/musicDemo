@@ -126,6 +126,7 @@ export default {
     },
     // 获取用户详情
     async getUserDetail () {
+      console.log(this.userInfo)
       const res = await getPlayHistory(this.userInfo.profile.userId)
       this.userPlayHistory = res.data.weekData
       // 用户喜欢音乐
