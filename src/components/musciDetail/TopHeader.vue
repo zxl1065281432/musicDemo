@@ -10,15 +10,25 @@
         <svg id="top_header_search" class="icon" aria-hidden="true" @click="$router.push('/search')">
           <use xlink:href="#icon-sousuo-copy"></use>
        </svg>
-       <svg class="icon" aria-hidden="true">
-          <use xlink:href="#icon-hanbaocaidan-copy"></use>
-       </svg>
+        <svg class="icon" aria-hidden="true" @click="goPlayListComments">
+           <use xlink:href="#icon-xinxi-copy"></use>
+         </svg>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  methods: {
+    goPlayListComments () {
+      this.$router.push({
+        name: 'playlistComments',
+        query: {
+          id: this.$route.query.id
+        }
+      })
+    }
+  }
 }
 </script>
 

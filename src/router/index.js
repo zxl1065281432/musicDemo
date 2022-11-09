@@ -50,6 +50,11 @@ const routes = [
     path: '/comments',
     name: 'comments',
     component: () => import('@/views/Comments.vue')
+  },
+  {
+    path: '/playlistComments',
+    name: 'playlistComments',
+    component: () => import('@/views/PlaylistComments.vue')
   }
 ]
 

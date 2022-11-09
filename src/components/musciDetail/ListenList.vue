@@ -15,7 +15,7 @@
     </div>
     <!-- 底部歌单列表 -->
     <div class="listenList_music_list" v-for="(item, index) in state.allMusicList" :key="index">
-        <div class="listenListx_list_left"  @click="changeSongList(index)">
+        <div class="listenList_list_left"  @click="changeSongList(index)">
             <span class="index">{{index + 1}}</span>
             <div class="musicInfo">
                 <strong class="musicName">{{item.name}}</strong>
