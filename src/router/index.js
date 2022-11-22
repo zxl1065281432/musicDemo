@@ -52,10 +52,30 @@ const routes = [
     component: () => import('@/views/Comments.vue')
   },
   {
+    path: '/news',
+    name: 'news',
+    component: () => import('@/views/News.vue'),
+    children: [
+      {
+        path: 'newsHistory',
+        component: () => import('@/views/NewsHistory.vue')
+      },
+      {
+        path: 'newsList',
+        component: () => import('@/views/NewsList.vue')
+      }
+    ]
+  },
+  {
+    path: '/newsDetail',
+    component: () => import('@/views/NewsDetail.vue')
+  },
+  {
     path: '/playlistComments',
     name: 'playlistComments',
     component: () => import('@/views/PlaylistComments.vue')
   }
+
 ]
 
 const router = createRouter({

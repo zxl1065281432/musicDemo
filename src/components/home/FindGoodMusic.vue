@@ -5,12 +5,6 @@
   </div>
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
 <style lang="less" scoped>
 .findMore {
     display: flex;
@@ -25,5 +19,4 @@ export default {
         background-color: #fff;
     }
 }
-
 </style>

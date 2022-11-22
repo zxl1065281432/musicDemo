@@ -9,7 +9,7 @@ export const getBannerList = function () {
 // 获取推荐歌单
 export const getRecommendMusicPic = function () {
   return axios({
-    url: '/personalized?limit=10',
+    url: '/personalized?limit=30',
     method: 'GET'
   })
 }

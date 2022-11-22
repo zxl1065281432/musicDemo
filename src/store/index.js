@@ -1,6 +1,7 @@
 import { login } from '@/api/login'
 import { getLyricsList } from '@/api/music'
 import { getItem, setItem } from '@/utils/storage'
+import { getNews } from '@/api/news'
 import { createStore } from 'vuex'
 // 本地 歌曲列表
 const LOCALMUSIC = getItem('PLAYLIST')
@@ -50,8 +51,9 @@ export default createStore({
     // 搜索结果显示状态
     isShowResult: false,
     // 歌曲歌词
-    lyricList: []
-
+    lyricList: [],
+    // 新闻列表--------------------------------------------
+    newsList: getItem('NEWSLSIT') || []
   },
   mutations: {
     // 调用mutations改变仓库store中的isBtnPlay
@@ -103,6 +105,11 @@ export default createStore({
     // 获取歌词列表
     getLyricsList (state, value) {
       state.lyricList = value
+    },
+    // 新闻--------------------------------------
+    getNewsList (state, value) {
+      state.newsList = value
+      setItem('NEWSLSIT', value)
     }
   },
   actions: {
@@ -116,6 +123,13 @@ export default createStore({
     async getLyricsList ({ commit }, id) {
       const res = await getLyricsList(id)
       commit('getLyricsList', res.data.lrc.lyric)
+    },
+    // 获取新闻列表--------------------------------------
+    async getNewsList ({ commit }) {
+      const res = await getNews()
+      console.log(res.data.T1348647853363)
+      commit('getNewsList', res.data.T1348647853363)
+      return res.data.T1348647853363
     }
   }
 })

@@ -6,14 +6,12 @@
             <use xlink:href="#icon-zhixiangzuo-copy"></use>
         </svg>
         <div class="musicInfo">
+          <!-- marquee -->
             <marquee  scrolldelay=260>
               <span class="songName">{{playList[curIndex].name}}</span>
             </marquee>
             <div class="singerInfo">
                 <span class="singer" v-for="item in playList[curIndex].ar" :key="item.id">{{item.name}}</span>
-                <svg class="icon" aria-hidden="true">
-                  <use xlink:href="#icon-xiangyou1-copy"></use>
-                </svg>
             </div>
         </div>
     </div>

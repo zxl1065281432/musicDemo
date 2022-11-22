@@ -7,12 +7,6 @@
       <svg class="icon" aria-hidden="true" @click="likeThis" v-else>
         <use xlink:href="#icon-aixin1"></use>
       </svg>
-      <svg class="download" aria-hidden="true">
-        <use xlink:href="#icon-yunxiazai_o"></use>
-      </svg>
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-music"></use>
-      </svg>
       <!-- 评论 -->
       <svg class="icon" aria-hidden="true" @click="$router.push('/comments')">
         <use xlink:href="#icon-pinglun"></use>

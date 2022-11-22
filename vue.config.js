@@ -10,7 +10,17 @@ module.exports = {
   1.configureWebpack 通过 操作对象的形式，来修改默认的webpack配置，该对象将会被 webpack-merge 合并入最终的 webpack 配置
   2.chainWebpack 通过 链式编程的形式，来修改默认的webpack配置
   */
-
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://c.m.163.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
+  },
   chainWebpack (config) {
     if (process.env.NODE_ENV === 'production') { // 为生产环境修改配置...
       config.plugin('compressionPlugin')

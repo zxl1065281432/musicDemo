@@ -1,14 +1,11 @@
 <template>
   <div class="home">
     <div class="home_header">
-      <svg class="icon" aria-hidden="true">
-        <use xlink:href="#icon-hanbaocaidan"></use>
-      </svg>
+      <img  class="logo" src="@/assets/logo.png"/>
       <div class="home_middle">
-        <span @click="goIdxPage(0)" :class="{home_active:curIdx === 0}">我的</span>
-        <span @click="goIdxPage(1)" :class="{home_active:curIdx === 1}">发现</span>
-        <span @click="goIdxPage(2)" :class="{home_active:curIdx === 2}">云村</span>
-        <span @click="goIdxPage(3)" :class="{home_active:curIdx === 3}">视频</span>
+        <span @click="goIdxPage(0)" :class="{home_active:curIdx === 0}">首页</span>
+        <span @click="goIdxPage(1)" :class="{home_active:curIdx === 1}">我的</span>
+        <span @click="goIdxPage(2)" :class="{home_active:curIdx === 3}">新闻</span>
       </div>
       <!-- 搜索 -->
        <svg class="icon" aria-hidden="true" @click="goSearch">
@@ -35,19 +32,23 @@ export default {
     // 进入个人中心
     goIdxPage (idx) {
       if (idx === 0) {
-        this.$router.push('/myInfo')
+        this.curIdx = 0
       } else if (idx === 1) {
-        this.curIdx = 1
+        this.$router.push('/myInfo')
       } else if (idx === 2) {
         this.curIdx = 2
-      } else if (idx === 3) {
-        this.curIdx = 3
+        // 跳转到新闻页面
+        this.$router.push('/news/newsList')
       }
     }
   }
 }
 </script>
 <style lang="less" scoped>
+.logo{
+  width: .6rem;
+  height: .6rem;
+}
     .home_header {
         padding: .225rem;
       display: flex;
