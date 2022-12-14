@@ -28,11 +28,11 @@
             <!-- 评论区头部 -->
             <div class="comment-area">
                 <div class="c_left">评论区</div>
-                <div class="c_right">
+                <!-- <div class="c_right">
                     <span>推荐</span>
                     <span>热门</span>
                     <span>最新</span>
-                </div>
+                </div> -->
             </div>
             <!-- 评论区内容 -->
             <div class="com_content" v-for="item in commentList" :key="item.userId" >
@@ -139,7 +139,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
 .comments_box{
         background-color: #eee;
         width: 100%;
@@ -172,6 +171,11 @@ export default {
             .musicName{
                 flex: .5;
                 text-align: center;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
             }
         }
     }
@@ -183,11 +187,11 @@ export default {
             display: flex;
             align-items: center;
             justify-content: space-between;
-        .c_right{
-            span {
-              margin-left: .3rem;
-            }
-        }
+        // .c_right{
+        //     span {
+        //       margin-left: .3rem;
+        //     }
+        // }
         }
         .com_content{
              padding: .2rem 0;
@@ -242,5 +246,4 @@ export default {
         }
     }
 }
-
 </style>

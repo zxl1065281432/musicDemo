@@ -74,8 +74,11 @@ const routes = [
     path: '/playlistComments',
     name: 'playlistComments',
     component: () => import('@/views/PlaylistComments.vue')
+  },
+  {
+    path: '/mv',
+    component: () => import('@/views/Mv.vue')
   }
-
 ]
 
 const router = createRouter({

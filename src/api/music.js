@@ -7,6 +7,20 @@ export const getBannerList = function (id) {
     method: 'GET'
   })
 }
+// 获取歌曲mv
+export const getMv = function (id) {
+  return axios({
+    url: `/mv/url?id=${id}`,
+    method: 'GET'
+  })
+}
+// 获取mv评论
+export const getMvComments = function (id) {
+  return axios({
+    url: `/comment/mv?id=${id}`,
+    method: 'GET'
+  })
+}
 // 获取歌词
 export const getLyricsList = function (id) {
   return axios({

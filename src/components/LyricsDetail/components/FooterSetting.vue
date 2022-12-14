@@ -4,6 +4,7 @@
       <svg class="icon" aria-hidden="true" @click="likeThis" v-if="!likeIt">
         <use xlink:href="#icon-aixin"></use>
       </svg>
+      <!-- 喜欢、不喜欢 -->
       <svg class="icon" aria-hidden="true" @click="likeThis" v-else>
         <use xlink:href="#icon-aixin1"></use>
       </svg>
@@ -11,7 +12,8 @@
       <svg class="icon" aria-hidden="true" @click="$router.push('/comments')">
         <use xlink:href="#icon-pinglun"></use>
       </svg>
-      <svg class="icon" aria-hidden="true">
+      <!-- 视频 -->
+      <svg class="icon" aria-hidden="true" v-if="hasMv" @click="goMv(this.hasMv)">
         <use xlink:href="#icon-shipin"></use>
       </svg>
   </div>
@@ -23,8 +25,14 @@ import { mapState } from 'vuex'
 export default {
   data () {
     return {
-      likeIt: false
+      // 是否喜欢过它
+      likeIt: false,
+      // 是否有mv
+      hasMv: false
     }
+  },
+  mounted () {
+    this.hasMv = this.playList[this.curIndex].mv
   },
   methods: {
     // 喜欢这首歌
@@ -34,6 +42,16 @@ export default {
       if (res.data.code === 302) {
         this.likeIt = !this.likeIt
       }
+    },
+    // 进入视频页
+    goMv (mvid) {
+      this.$router.push({
+        path: '/mv',
+        query: {
+          id: mvid,
+          name: this.playList[this.curIndex].name
+        }
+      })
     }
   },
   computed: {

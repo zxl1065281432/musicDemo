@@ -28,7 +28,7 @@
         </div>
        <div class="__listenList_right">
             <!-- 视频 -->
-            <svg class="icon" aria-hidden="true" v-if="item.mv !== 0">
+            <svg class="icon" aria-hidden="true" v-if="item.mv !== 0" @click="goMv(item)">
                 <use xlink:href="#icon-shipin"></use>
             </svg>
             <!-- 菜单 -->
@@ -56,6 +56,7 @@ export default {
     onMounted(async () => {
       const res = await getAllMusic(id)
       state.allMusicList = res.data.songs
+      console.log(state.allMusicList)
     })
     return { state, id }
   },
@@ -72,6 +73,17 @@ export default {
     // 播放全部歌单歌曲
     playAllSongs () {
       this.changeSongList(0)
+    },
+    // 进入mv页面
+    async goMv (item) {
+      console.log('12', item)
+      this.$router.push({
+        path: '/mv',
+        query: {
+          id: item.mv,
+          name: item.name
+        }
+      })
     }
   },
   computed: {
